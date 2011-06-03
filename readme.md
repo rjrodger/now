@@ -1,4 +1,4 @@
-Get NowJS
+Get NowJS http://www.nowjs.com/
 =========
 NowJS is a Node.js module. The client javascript (now.js) is served by the NowJS server.
 
@@ -28,7 +28,10 @@ NowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">
     
     var nowjs = require("now");
     var everyone = nowjs.initialize(httpServer);
-    everyone.now.msg = "Hello World!";
+    
+    everyone.now.logStuff = function(msg){
+        console.log(msg);
+    }
     
 **2. On the client**
 <pre><code>
@@ -36,8 +39,8 @@ NowJS uses the excellent <a href="https://github.com/LearnBoost/Socket.IO-node">
 
 &lt;script type="text/javascript"&gt;
   now.ready(function(){
-    // alerts "Hello World!"
-    alert(now.msg);
+    // "Hello World!" will print on server
+    now.logStuff("Hello World!");
   });
 &lt;/script>
 </code></pre>
